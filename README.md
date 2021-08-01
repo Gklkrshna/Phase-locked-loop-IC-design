@@ -26,6 +26,7 @@ The following repo is the documentation of learnings and activities done through
   * [PFD Circuit](#pfd-circuit)
   * [Charge Pump Circuit](#charge-pump-circuit)
   * [VCO Circuit](#vco-circuit)
+  * [PLL Circuit](#pll-circuit)
 * [Layout Design](#layout-design)
 * [Parasitic Extraction](#parasitic-extraction)
 * [Post layout Simulation](#post-layout-simulation)
@@ -195,6 +196,22 @@ Shown below are examples of terminal commands:
 
 
 The layouts for each circuits are given below:
+
+![FD_layout](https://user-images.githubusercontent.com/78468534/127783517-afba527a-d7b5-42e4-8bd7-bbd58d6ca425.jpeg)  
+_FD Layout_
+
+![PFD_layout](https://user-images.githubusercontent.com/78468534/127783518-8e061e34-1910-452a-bd0d-c9ccaf20e062.jpeg)  
+_PFD Layout_
+
+![CP_layout](https://user-images.githubusercontent.com/78468534/127783521-f3857e3b-5bdc-4708-b0c7-dc6f8e644cb6.jpeg)  
+_CP Layout_
+
+![VCO_layout](https://user-images.githubusercontent.com/78468534/127783524-5d189d3e-773a-497f-a63e-3962dd442a0b.jpeg)  
+_VCO Layout_
+
+After making each layout, these layouts can be instantiated to make the final PLL layout. This is done using _File > Place Instance_ option.  
+![PLL_layout](https://user-images.githubusercontent.com/78468534/127783571-8c9939d1-c883-4e21-a04e-97d139257e1e.jpeg)  
+_PLL Layout_
 
 
 
