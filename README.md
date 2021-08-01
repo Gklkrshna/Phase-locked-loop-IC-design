@@ -25,6 +25,7 @@ The following repo is the documentation of learnings and activities done through
   * [Frequency Divider Circuit](#frequency-divider-circuit)
   * [PFD Circuit](#pfd-circuit)
   * [Charge Pump Circuit](#charge-pump-circuit)
+  * [VCO Circuit](#vco-circuit)
 * [Layout Design](#layout-design)
 * [Parasitic Extraction](#parasitic-extraction)
 * [Post layout Simulation](#post-layout-simulation)
@@ -122,6 +123,14 @@ This simple circuit can be drawn as:
 Writing this circuit as a spice file:  
 ![FD_spice](https://user-images.githubusercontent.com/78468534/127781792-3465c9c8-3245-4b77-ac2f-e5bde8e3e9cc.jpeg)
 
+*Pre-layout Simulation*  
+The pre-layout simulation of spice model can be done using the command:
+
+                              ngspice <spice_file_name>
+
+
+![FD_prelay_sim](https://user-images.githubusercontent.com/78468534/127782690-bc1b6585-a9a2-4702-975f-15f574a865cc.jpeg)
+_FD Prelayout Simulation Result_
 
 #### PFD Circuit
 The PFD circuit is designed such that, square(digital) signals with pulse width proportional to phase difference are produced at output. Also two different outputs are used to distinguish between cases when output is leading reference signal and lagging behind reference signal.
@@ -132,12 +141,24 @@ Given below are the PFD circuit..
 and the spice file.  
 ![PFD_spice](https://user-images.githubusercontent.com/78468534/127782024-c29ba837-832e-431c-b468-786f3979b9eb.jpeg)
 
+*Pre-layout Simulation*  
+
+![PD_prelay_sim](https://user-images.githubusercontent.com/78468534/127782705-2d819680-ab57-4769-8084-2271b544e5b7.jpeg) ![PFD_prelay_graph](https://user-images.githubusercontent.com/78468534/127783258-83a021c6-6241-43df-9a3f-a9cfcb31500e.jpeg)
+
+
+_PFD Prelayout Simulation Results_
+
 #### Charge Pump Circuit
-The charge pump circuit with modification considering the leakage current is 
+The charge pump circuit with modification considering the leakage current is  
 ![CP_circuit](https://user-images.githubusercontent.com/78468534/127782045-6a5b2df2-13fd-4456-9337-6b2af6604d05.jpeg)  
 and the spice file is  
 ![CP_spice](https://user-images.githubusercontent.com/78468534/127782052-9781fe6c-94e5-4cf3-8157-677d27ed436d.jpeg)
 
+*Pre-layout Simulation*  
+
+
+![CP_prelay_sim](https://user-images.githubusercontent.com/78468534/127782713-b5eaa388-ccfe-4447-8053-d392bf38309b.jpeg) 
+_CP Prelayout Simulation Result_
 
 #### VCO Circuit
 The VCO circuit is realised with a current starved 3 inverter circuit. Using this method, the delay of inverter can be controlled and thereby the frequency of output clock.
@@ -148,6 +169,38 @@ The circuit is:
 
 and the spice model is  
 ![VCO_spice](https://user-images.githubusercontent.com/78468534/127782626-a74a43c2-fc10-4d88-b3e6-d36360bbb180.jpeg)
+
+*Pre-layout Simulation*  
+
+![VCO_prelay_sim](https://user-images.githubusercontent.com/78468534/127782718-f6cbddc3-54aa-4047-8ff8-c0fef91b9921.jpeg)  
+_VCO Prelayout Simulation Result_
+
+#### PLL Circuit
+The final PLL circuit is the joining of all the other blocks. However in addition to individual simulations, the PLL as a whole also need to be simulated. For this we create the spice file by calling the individual circuits as subcircuits.  
+![PLL_spice](https://user-images.githubusercontent.com/78468534/127783331-469f1c70-0ca4-421c-a20b-e7afc3ff4296.jpeg)
+
+*Pre-layout Simulation*  
+![PLL_prelay_sim](https://user-images.githubusercontent.com/78468534/127783351-b3ff364a-3691-485e-b655-543d0290a1a2.jpeg)
+![PLL_prelay_graph](https://user-images.githubusercontent.com/78468534/127783355-32111d1c-00c2-4697-a09f-596713cf9852.jpeg)  
+_PLL simulation results_
+
+---------
+## Layout Design
+Layout Design is the part in which the circuit is converted to polygons which can be made into GDSII format. Here layout design is done using the Magic tool. The layouts are saved with ".mag" extensions. These files can be opened with command:
+
+                                          magic -T <technology_file_name> <layout_file_name>
+
+Shown below are examples of terminal commands:  
+![Magic_commands](https://user-images.githubusercontent.com/78468534/127783264-96276c70-a604-4f9d-a261-3f6b7b3dc750.jpeg)
+
+
+The layouts for each circuits are given below:
+
+
+
+
+
+
 
 
 
