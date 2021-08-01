@@ -21,8 +21,10 @@ The following repo is the documentation of learnings and activities done through
    * [NGSPICE](#ngspice)
    * [Magic](#magic)
 * [Circuit Design and Simulation](#circuit-design-and-simulation)
-  * [Design of Components](#design-of-components)
-  * [Pre layout Simulations](#pre-layout-simulations)
+  * [Specifications](#specification)
+  * [Frequency Divider Circuit](#frequency-divider-circuit)
+  * [PFD Circuit](#pfd-circuit)
+  * [Charge Pump Circuit](#charge-pump-circuit)
 * [Layout Design](#layout-design)
 * [Parasitic Extraction](#parasitic-extraction)
 * [Post layout Simulation](#post-layout-simulation)
@@ -91,4 +93,62 @@ Magic is an open-source VLSI layout tool. It is mainly used for making the layou
            ./configure                                      //run configure script
            make                                             //run make command to compile
            sudo make install                                //install magic
-           
+
+
+Additionally, many of the files used in this workshop where provided through a github repository.  
+![git_lakshmi](https://user-images.githubusercontent.com/78468534/127781783-f22154e9-a5ff-4eae-8128-38edf4433ac5.jpeg)
+
+
+---------
+## Circuit Design and Simulation
+
+#### Specifications
+As mentioned in the design flow, every design starts with determining the specifications. The specifications for PLL to be designed are:
+
+* Corner - 'TT' (_Typical-Typical_)
+* Supply Voltage - 1.8V
+* Room Temperature
+* VCO mode and PLL mode
+* Input F<sub>min</sub>=5Mhz; F<sub>max</sub>=12.5Mhz
+* Multiplier - 8x
+* Jitter(RMS) < ~20ns
+* Duty Cycle - 50%
+
+#### Frequency Divider Circuit
+A simple 2x frequency divider circuit can be obtained by using a single D-flipflop whose output is fed back to its input after passing through an inverter. Cascading 3 such flops can give you 8x divider.
+This simple circuit can be drawn as:  
+![FD_circuit](https://user-images.githubusercontent.com/78468534/127781480-b09756aa-a4ce-48e4-8164-4fad67cf1f7d.jpeg)
+
+Writing this circuit as a spice file:  
+![FD_spice](https://user-images.githubusercontent.com/78468534/127781792-3465c9c8-3245-4b77-ac2f-e5bde8e3e9cc.jpeg)
+
+
+#### PFD Circuit
+The PFD circuit is designed such that, square(digital) signals with pulse width proportional to phase difference are produced at output. Also two different outputs are used to distinguish between cases when output is leading reference signal and lagging behind reference signal.
+
+Given below are the PFD circuit..  
+![PFD_circuit](https://user-images.githubusercontent.com/78468534/127782010-b21f76ed-6bed-4406-bfd0-2c5fca9838ac.jpeg)
+
+and the spice file.  
+![PFD_spice](https://user-images.githubusercontent.com/78468534/127782024-c29ba837-832e-431c-b468-786f3979b9eb.jpeg)
+
+#### Charge Pump Circuit
+The charge pump circuit with modification considering the leakage current is 
+![CP_circuit](https://user-images.githubusercontent.com/78468534/127782045-6a5b2df2-13fd-4456-9337-6b2af6604d05.jpeg)  
+and the spice file is  
+![CP_spice](https://user-images.githubusercontent.com/78468534/127782052-9781fe6c-94e5-4cf3-8157-677d27ed436d.jpeg)
+
+
+#### VCO Circuit
+The VCO circuit is realised with a current starved 3 inverter circuit. Using this method, the delay of inverter can be controlled and thereby the frequency of output clock.
+                          frequency of clock = 1/(2 * delay of inverter * no: of inverters)
+                          
+The circuit is:  
+![VCO_circuit](https://user-images.githubusercontent.com/78468534/127782614-ed6b8289-cf29-4cd9-bfe7-078176fe6c26.jpeg)
+
+and the spice model is  
+![VCO_spice](https://user-images.githubusercontent.com/78468534/127782626-a74a43c2-fc10-4d88-b3e6-d36360bbb180.jpeg)
+
+
+
+
