@@ -248,5 +248,5 @@ Adding PLL to caravel
 ---------
 ## Acknowledgement
 * [Kunal Ghosh](#https://github.com/kunalg123), Co-founder,VSD
-* [Lakshmi S](#https://www.linkedin.com/in/lakshmis96), Instructor
+* [Lakshmi S](#https://github.com/lakshmi-sathi), Instructor
 
