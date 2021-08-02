@@ -28,8 +28,7 @@ The following repo is the documentation of learnings and activities done through
   * [VCO Circuit](#vco-circuit)
   * [PLL Circuit](#pll-circuit)
 * [Layout Design](#layout-design)
-* [Parasitic Extraction](#parasitic-extraction)
-* [Post layout Simulation](#post-layout-simulation)
+* [Parasitic Extraction and PLS](#parasitic-extraction-and-pls)
 * [Tapeout](#tapeout)
 * [Acknowledgement](#acknowledgement)
 
@@ -214,11 +213,27 @@ After making each layout, these layouts can be instantiated to make the final PL
 _PLL Layout_
 
 
+---------
+## Parasitic Extraction and PLS
+
+Parasitic extraction is the process of extracting the capacitance effects(parasitics) of the circuit realised in the layout. This can be done using the magic tool. The magic tool can do this using _extract all_ command. This can further be converted to a spice file using command _ext2spice_.
+
+Given below is an example spice file of PFD generated in such a way.  
+![Spice_generated _by_magic](https://user-images.githubusercontent.com/78468534/127806679-9301b011-1f09-4150-a614-46c224a837aa.jpeg)  
+For this example around 43 capacitance have been extracted, the largest capacitance between Vcc and GND.
 
 
+This spice file is used to perform the post-layout simulation.
+
+![Postlay_sim](https://user-images.githubusercontent.com/78468534/127806827-8bbbbe93-b09a-42f9-949f-270688a8c93b.jpeg)  
+The above picture shows post-layout simulation results of PFD spice after parasitic extraction.
+
+The parasitic extraction and post-layout simulation are steps for ensuring fuctionality. The GDS file generation can however be done after creating the layout with magic tool.
 
 
+---------
+## Tapeout
 
-
+GDS file can be created using the option _File > Write GDS_.
 
 
