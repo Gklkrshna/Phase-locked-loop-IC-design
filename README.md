@@ -235,5 +235,17 @@ The parasitic extraction and post-layout simulation are steps for ensuring fucti
 ## Tapeout
 
 GDS file can be created using the option _File > Write GDS_. Although the GDSII file is considered the final format which is sent for fabrication, the IC designed cannot be send as such. The design need to be "prepared" for fabrication process. This preparation is called the tapeout.
+Any addition which helps connect the wafer to outside world would come under this preparation. This may include adding I-O ports, UART and other peripherals. Efabless, provides a free "shuttle" which will carry our design . This is the Caravel SoC.
+  
+![Caravel_soc](https://user-images.githubusercontent.com/78468534/127822463-cd54b92b-b178-4f99-913d-33ef7c995c53.jpeg)  
+_Caravel SoC Structure(as provided in [efabless.com](#https://efabless.com))_
+
+Within the design for caravel, the IP can be added using _Place Instance_ option within the magic tool. After placing, the inputs and outputs need to be connected to the carvel template.  
+
+![PLL_in_caravel](https://user-images.githubusercontent.com/78468534/127823532-b9664a56-5e88-4bdb-b81d-7aec36127d15.jpeg)  
+Adding PLL to caravel
+
+---------
+## Acknowledgement
 
 
