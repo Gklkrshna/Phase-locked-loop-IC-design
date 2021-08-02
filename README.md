@@ -1,4 +1,4 @@
-# Phase-locked-loop-IC-design
+# Phase Locked Loop IC Design
 
 
 ![Wokshop](https://user-images.githubusercontent.com/78468534/127773666-6942ba09-4dd8-488b-af30-fa7b3ed6179b.jpeg)
@@ -234,6 +234,6 @@ The parasitic extraction and post-layout simulation are steps for ensuring fucti
 ---------
 ## Tapeout
 
-GDS file can be created using the option _File > Write GDS_.
+GDS file can be created using the option _File > Write GDS_. Although the GDSII file is considered the final format which is sent for fabrication, the IC designed cannot be send as such. The design need to be "prepared" for fabrication process. This preparation is called the tapeout.
 
 
