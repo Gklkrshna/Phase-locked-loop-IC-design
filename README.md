@@ -248,5 +248,5 @@ Adding PLL to caravel
 ---------
 ## Acknowledgement
 * [Kunal Ghosh](https://github.com/kunalg123), Co-founder,VSD
-* [Lakshmi S](https://github.com/lakshmi-sathi), Instructor
+* [Lakshmi S](https://github.com/lakshmi-sathi), Instructor - [8x PLL Clock Multiplier IP](https://github.com/lakshmi-sathi/avsdpll_1v8)
 
